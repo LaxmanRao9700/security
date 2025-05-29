@@ -1,0 +1,17 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class IntegerValueStart1AndSum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<String> list= Arrays.asList("1","5","2","8","6","10","18","111","185");
+		
+		List<String> listOfOne= list.stream().filter(s->s.startsWith("1")).collect(Collectors.toList());
+	
+		System.out.print(listOfOne.stream().mapToInt(Integer::parseInt).sum());
+	}
+
+}

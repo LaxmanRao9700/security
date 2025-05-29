@@ -1,0 +1,21 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+public class WordsReverse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Input: Good morning India
+
+		// Output: dooG gninrom aidnI
+
+		String str = "Good morning India";
+
+		String output = Arrays.stream(str.split(" ")).map(words -> new StringBuilder(words).reverse().toString())
+				.collect(Collectors.joining(" "));
+
+		System.out.println(output.toString());
+	}
+
+}

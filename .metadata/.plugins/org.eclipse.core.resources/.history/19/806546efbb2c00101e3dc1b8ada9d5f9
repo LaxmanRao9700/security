@@ -1,0 +1,27 @@
+
+public class SingletonCloneable implements Cloneable{
+	private static SingletonCloneable Instance = null;
+
+	private SingletonCloneable() {
+
+	}
+
+	public static SingletonCloneable getInstance() {
+		if (null == Instance) {
+			Instance = new SingletonCloneable();
+		}
+
+		return Instance;
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

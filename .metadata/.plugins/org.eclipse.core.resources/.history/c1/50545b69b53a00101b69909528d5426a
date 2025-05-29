@@ -1,0 +1,35 @@
+
+public class AAA {
+String name;
+
+	public AAA() {
+		System.out.println("AAA Con");
+	}
+	
+	public AAA(String name) {
+		System.out.println("AAA Con :"+name);
+	}
+	   void m1() {
+		System.out.println("m1 AAA");
+	}
+	   private void m2() {
+			System.out.println("m2 AAA");
+		}
+}
+
+class BBB extends AAA{
+	  void m1() {
+		  super.m1();
+		System.out.println("m1 BBB");
+	}
+	  void m2() {
+			System.out.println("m2 BBB");
+		}
+	  public BBB() {
+		  super("laxman");
+			System.out.println("BBB Con");
+		}
+	 
+}
+
+ 

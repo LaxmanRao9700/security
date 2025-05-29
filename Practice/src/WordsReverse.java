@@ -1,0 +1,36 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
+
+public class WordsReverse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Input: Good morning India
+
+		// Output: dooG gninrom aidnI
+
+		String str = "Good morning India";
+
+		String output = Arrays.stream(str.split(" ")).map(words -> new StringBuilder(words).reverse().toString())
+				.collect(Collectors.joining(" "));
+
+		System.out.println(output.toString());
+		
+		
+		String s=Arrays.stream(str.split(" ")).collect(Collectors.collectingAndThen( Collectors.toList(),list->{
+			Collections.reverse(list);
+			return list.stream();		
+		})).map(String::new).collect(Collectors.joining(" "));
+		
+		System.out.println(s);
+		
+		String[] words=s.split(" ");
+		String f= Arrays.stream(words).map(word -> words[0].equals(word) ? new StringBuilder(word).reverse().toString(): word)
+			.collect(Collectors.joining(" "));
+		
+		System.out.println(f);
+	}
+
+}

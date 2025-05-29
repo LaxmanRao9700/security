@@ -1,0 +1,59 @@
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class HashtableConcurrentHashmap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Map<Integer, String> map=new Hashtable<>();
+		
+		map.put(1, "one");
+		map.put(2, "two");
+		/*
+		 * map.put(null, "three"); map.put(1, "four"); map.put(3, null); map.put(null,
+		 * null);
+		 */
+		System.out.println(map);
+		
+		
+		Iterator<Entry<Integer, String>> i= map.entrySet().iterator();
+		
+		while (i.hasNext()) {
+		    Map.Entry<Integer, String> entry = i.next();
+		    
+		    if(entry.getKey() == 1) {
+		        i.remove(); // Safe in ConcurrentHashMap
+		    }
+		    
+		   
+		}
+		 System.out.println(map);
+		
+		Map<Integer, String> hashtable=new Hashtable<>();
+		
+		hashtable.put(1, "one");
+		hashtable.put(2, "two");
+		hashtable.put(null, "three");
+		hashtable.put(1, "four");
+		hashtable.put(3, null);
+		hashtable.put(null, null);
+		System.out.println(hashtable);
+
+		
+		Map<Integer, String> concurrent=new ConcurrentHashMap<>();
+		
+		concurrent.put(1, "one");
+		concurrent.put(2, "two");
+		concurrent.put(null, "three");
+		concurrent.put(1, "four");
+		concurrent.put(3, null);
+		concurrent.put(null, null);
+		System.out.println(concurrent);
+	}
+
+}

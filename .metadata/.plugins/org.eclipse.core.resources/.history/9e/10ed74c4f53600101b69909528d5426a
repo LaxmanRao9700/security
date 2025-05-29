@@ -1,0 +1,13 @@
+
+public class AAA {
+
+	  protected void m1() {
+		System.out.println("m1");
+	}
+}
+
+class BBB extends AAA{
+	public  void m1() {
+		System.out.println("m1");
+	}
+}

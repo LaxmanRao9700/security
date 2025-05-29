@@ -1,0 +1,28 @@
+package com;
+@FunctionalInterface
+interface A{
+String m1();
+}
+
+
+@FunctionalInterface
+interface B {
+String m2();
+
+}
+public class FunctionalInterfaceTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A m = () -> {
+	        return "This is Interf A....";
+	    };
+
+	B n = () -> {
+	        return "This is Interf B....";
+	    };	
+	}
+	
+	
+
+}

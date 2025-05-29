@@ -1,0 +1,22 @@
+
+public class StingTest {
+
+	public static void main(String[] args) {
+		//java is good
+
+		//doog is java
+		
+		String str= "java is good";
+		
+		String[] words=str.split(" ");
+		
+		StringBuilder sb= new StringBuilder();
+		
+		for(String word:words) {	
+		sb.append(new StringBuilder(word).reverse().toString()).append(" ");
+		}
+
+		System.out.println(sb);
+	}
+
+}

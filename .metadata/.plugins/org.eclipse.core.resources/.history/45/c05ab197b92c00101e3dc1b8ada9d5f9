@@ -1,0 +1,9 @@
+
+public class SingletonEager {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

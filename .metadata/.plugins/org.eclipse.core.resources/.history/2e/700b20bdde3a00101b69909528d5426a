@@ -1,0 +1,111 @@
+
+import java.util.AbstractMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Student {
+
+	private int id;
+	private String name;
+	private String address;
+	private List<String> courses;
+
+	public Student(int id, String name, String address, List<String> courses) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.courses = courses;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + ", courses=" + courses + "]";
+	}
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public List<String> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<String> courses) {
+		this.courses = courses;
+	}
+
+	public static void main(String[] args) {
+
+		List<Student> students = Arrays.asList(
+				new Student(101, "Rahul Sharma", "Mumbai", Arrays.asList("Math", "Physics", "Computer Science")),
+				new Student(102, "Anjali Mehta", "Delhi", Arrays.asList("Biology", "Chemistry")),
+				new Student(103, "Vikram Singh", "Bangalore", Arrays.asList("Math", "English", "Economics")),
+				new Student(104, "Sneha Kapoor", "Pune", Arrays.asList("History", "Political Science")),
+				new Student(105, "Amit Tiwari", "Hyderabad", Arrays.asList("Math", "Computer Science")),
+				new Student(106, "Priya Das", "Chennai", Arrays.asList("Physics", "Chemistry", "Biology")),
+				new Student(107, "Karan Verma", "Kolkata", Arrays.asList("Math", "Statistics")),
+				new Student(108, "Neha Reddy", "Ahmedabad", Arrays.asList("Economics", "Business Studies")),
+				new Student(109, "Ravi Kumar", "Jaipur", Arrays.asList("Computer Science", "English")),
+				new Student(110, "Divya Nair", "Thiruvananthapuram", Arrays.asList("Math", "Physics", "Astronomy")));
+
+		students.stream()
+				.filter(student -> student.getCourses().contains("Math") && student.getCourses().contains("Math"))
+				.map(Student::getName).collect(Collectors.toList()).forEach(System.out::println);
+
+		System.out.println("-------------");
+		students.stream().filter(student -> !student.getAddress().equals("Pune")).map(student -> student.getId() + ":"
+				+ student.getName() + ":" + student.getAddress() + ":" + student.getCourses())
+				.collect(Collectors.toList()).forEach(System.out::println);
+		System.out.println("-------------");
+		students.stream().filter(student -> student.getName().endsWith("r") || student.getName().endsWith("a"))
+				.map(student -> student.getName() + ":" + student.getAddress() + ":" + student.getCourses())
+				.collect(Collectors.toList()).forEach(System.out::println);
+		System.out.println("-------------");
+		students.stream().filter(student -> student.getCourses().contains("Math")).map(Student::getName)
+				.collect(Collectors.toList()).forEach(System.out::println);
+
+		System.out.println("-------------");
+
+		students.stream().collect(Collectors.groupingBy(Student::getCourses, Collectors.counting()))
+				.forEach((k, v) -> System.out.println(k + ":" + v));
+		System.out.println("-------------");
+
+		students.stream().flatMap(student -> student.getCourses().stream())
+				.collect(Collectors.groupingBy(course -> course, Collectors.counting()))
+				.forEach((k, v) -> System.out.println(k + ":" + v));
+		System.out.println("-------------");
+		students.stream().flatMap(student -> student.getCourses().stream()
+				.map(course -> new AbstractMap.SimpleEntry<>(course, student.getName() + ":" + student.getAddress())))
+				.collect(Collectors.groupingBy(Map.Entry::getKey,
+						Collectors.mapping(Map.Entry::getValue, Collectors.toList())))
+				.forEach((k, v) -> System.out.println(k + ":" + v));
+	}
+}

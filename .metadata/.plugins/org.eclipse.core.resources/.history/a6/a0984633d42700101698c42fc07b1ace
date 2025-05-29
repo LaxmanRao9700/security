@@ -1,0 +1,34 @@
+package demo;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class LongestSubStringLength {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String s = "abcabcbb";
+		int longestLength = IntStream.range(0, s.length()).mapToObj(i -> s.substring(i))
+				.mapToInt(LongestSubStringLength::lengthOfUniqueSubstring).max().orElse(0);
+		System.out.println("Longest Substring Length: " + longestLength);
+	}
+
+	private static int lengthOfUniqueSubstring(String s) {
+		Set<Character> seen = new HashSet<>();
+		int length = 0;
+		for (char c : s.toCharArray()) {
+			if (seen.contains(c)) {
+				break;
+			}
+			seen.add(c);
+			length++;
+		}
+		return length;
+
+	}
+
+}

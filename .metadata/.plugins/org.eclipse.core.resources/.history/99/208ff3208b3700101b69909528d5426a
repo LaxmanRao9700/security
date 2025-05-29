@@ -1,0 +1,13 @@
+
+public class AAA {
+
+	   void m1() {
+		System.out.println("m1");
+	}
+}
+
+class BBB extends AAA{
+	  void m1() {
+		System.out.println("m1");
+	}
+}

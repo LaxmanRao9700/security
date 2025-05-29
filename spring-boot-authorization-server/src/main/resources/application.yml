@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-boot-authorization-server
+server:
+  port: 9000
+

@@ -1,0 +1,82 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EmployeeDepartment {
+
+	private int id;
+    private String name;
+    private String department;
+    private String gender;
+
+    // Constructor, Getters, Setters
+
+    public EmployeeDepartment(int id, String name, String department, String gender) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.gender = gender;
+    }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeDepartment [id=" + id + ", name=" + name + ", department=" + department + ", gender=" + gender
+				+ "]";
+	}
+    
+    public static void main(String[] args) {
+    	List<EmployeeDepartment> list = Arrays.asList(
+                new EmployeeDepartment(1, "Alice", "IT", "Female"),
+                new EmployeeDepartment(2, "Bob", "HR", "Male"),
+                new EmployeeDepartment(3, "Charlie", "IT", "Male"),
+                new EmployeeDepartment(4, "Diana", "HR", "Female"),
+                new EmployeeDepartment(5, "Eve", "IT", "Female")
+            );
+    	
+    	list.stream()
+    	.collect(Collectors.groupingBy(EmployeeDepartment::getDepartment,Collectors.groupingBy(EmployeeDepartment::getGender)))
+    	.forEach((k,v)->System.out.println(k+":"+v));
+    	
+    	System.out.println("------------------");
+    	
+    	list.stream()
+    	.collect(Collectors.groupingBy(EmployeeDepartment::getDepartment,Collectors.groupingBy(EmployeeDepartment::getGender)))
+    	.forEach((dept,genderMap)->{
+    		System.out.println(dept+"->");
+    		genderMap.forEach((gender,employees)->{System.out.println(gender+":"+employees);
+    		});
+    	});
+	}
+}

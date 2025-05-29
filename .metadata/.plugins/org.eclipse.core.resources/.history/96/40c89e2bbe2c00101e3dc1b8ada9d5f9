@@ -1,0 +1,42 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class SingletonSerializaion implements Serializable{
+
+	 private static final SingletonSerializaion INSTANCE = new SingletonSerializaion();
+
+	    private SingletonSerializaion() {}
+
+	    public static SingletonSerializaion getInstance() {
+	        return INSTANCE;
+	    }
+	public static void main(String[] args) throws FileNotFoundException, IOException  {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton.ser"));
+		try {
+			oos.writeObject(SingletonSerializaion.getInstance());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("singleton.ser"));
+		SingletonSerializaion s=null;
+		try {
+			 s = (SingletonSerializaion) ois.readObject();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(s == SingletonSerializaion.getInstance()); 
+
+	}
+
+}

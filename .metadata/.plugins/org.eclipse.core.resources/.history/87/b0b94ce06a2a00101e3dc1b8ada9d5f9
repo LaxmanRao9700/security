@@ -1,0 +1,23 @@
+import java.util.stream.Collectors;
+
+public class StringLettersDigitsSymbols {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String str = "123abcd@$";
+
+		String digit = str.chars().filter(Character::isDigit).mapToObj(c -> (char) c).map(String::valueOf)
+				.collect(Collectors.joining());
+		System.out.println(digit);
+		String letter = str.chars().filter(Character::isLetter).mapToObj(c -> (char) c).map(String::valueOf)
+				.collect(Collectors.joining());
+		System.out.println(letter);
+		
+		String symbol = str.chars().filter(c->!Character.isLetterOrDigit(c)).mapToObj(c -> (char) c).map(String::valueOf)
+				.collect(Collectors.joining());
+		System.out.println(symbol);
+		
+	}
+
+}

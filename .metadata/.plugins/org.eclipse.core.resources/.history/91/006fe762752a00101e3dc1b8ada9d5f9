@@ -1,0 +1,16 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class StringDuplicate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<String> list = Arrays.asList("Ravi", "ravi", "raj", "rohan");
+
+		list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.forEach((key, value) -> System.out.println(key + "-" + value));
+	}
+
+}

@@ -1,0 +1,25 @@
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class StringCharFrequence {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[] arr = {"AB", "BC", "AAAB", "CCCB", "CAAAD", "DAB", "BADE"};
+
+        // Join all strings in the array into a single string (no commas)
+        String str = Arrays.stream(arr).collect(Collectors.joining());
+
+        // Count frequency of each character
+        str.chars()
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+            ))
+            .forEach((letter, count) -> System.out.println(letter + " -> " + count));
+	}
+
+}

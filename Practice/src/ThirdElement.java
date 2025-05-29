@@ -1,0 +1,25 @@
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class ThirdElement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[] array = {4, 2, 7, 1, 5, 3, 6};
+		int k = 3; // Find the 3rd smallest element
+		
+		Optional<Integer> thirdElement= Arrays.stream(array).boxed().sorted().skip(2).findFirst();
+		System.out.println(thirdElement.get());
+		
+		List<Integer> list= Arrays.asList(4, 2, 7, 1, 5, 3, 6);
+		
+		System.out.println(list.stream().sorted().skip(2).findFirst().get());
+	}
+
+}

@@ -1,0 +1,19 @@
+import java.util.*;
+
+
+public class ListFirst3NumberSum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 List<Integer> numbers = Arrays.asList(10, 15, 20, 25, 30, 35, 40);
+		 
+		 System.out.println( numbers.stream().limit(3).mapToInt(Integer::intValue).sum());
+
+		 System.out.println( numbers.stream().limit(3).mapToDouble(Integer::intValue).average());
+		 
+		 System.out.println( numbers.stream().limit(3).mapToInt(Integer::intValue).min());
+		 
+		 System.out.println( numbers.stream().limit(3).mapToInt(Integer::intValue).max());
+	}
+
+}

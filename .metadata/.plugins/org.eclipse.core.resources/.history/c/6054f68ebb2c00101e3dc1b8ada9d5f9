@@ -1,0 +1,22 @@
+
+public class SingletonCloneable {
+	private static SingletonCloneable Instance = null;
+
+	private SingletonCloneable() {
+
+	}
+
+	public static SingletonCloneable getInstance() {
+		if (null == Instance) {
+			Instance = new SingletonCloneable();
+		}
+
+		return Instance;
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

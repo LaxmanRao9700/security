@@ -1,0 +1,70 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Product {
+	int id;
+	int price;
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public Product(int id, int price) {
+		super();
+		this.id = id;
+		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", price=" + price + "]";
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	
+		
+		/*Given a list of objects, I need to find the sum based on a condition:
+			If the price > 30, multiply by 2, Else, add the same price
+			Code Input:
+			var inputList = [{id: 1, price: 10}, {id: 2, price: 35}, {id: 3, price: 60}];*/
+			
+			
+		List<Product> list= Arrays.asList(new Product(1, 10),new Product(2, 35),new Product(3, 60));
+		
+		/*
+		 * int total=0; for(Product product:list) { if(product.price>30) {
+		 * total=total+product.price*2; } else { total=total+product.price; } }
+		 */
+		System.out.println(total);
+		
+		list.stream().filter(product->product.getPrice()>30).peek(product->product.setPrice(product.getPrice()*2))
+		.collect(Collectors.toList()).forEach(System.out::println);
+		
+		int toltal=list.stream().mapToInt(product->product.getPrice()>30 ? product.getPrice()*2 : product.getPrice()).sum();
+		System.out.println(toltal);
+			
+	}
+
+}

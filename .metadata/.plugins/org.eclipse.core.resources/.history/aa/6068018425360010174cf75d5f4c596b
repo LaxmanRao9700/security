@@ -1,0 +1,23 @@
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class HashtableConcurrentHashmap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Map<Integer, String> map=new HashMap<>();
+		
+		map.put(1, "one");
+		map.put(2, "two");
+		map.put(5, "three");
+		map.put(1, "four");
+		map.put(3, null);
+		map.put(4, null);
+		System.out.println(map);
+
+	}
+
+}

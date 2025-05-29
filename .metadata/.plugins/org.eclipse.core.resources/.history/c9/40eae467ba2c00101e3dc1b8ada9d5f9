@@ -1,0 +1,17 @@
+
+public class SingletonLazy {
+	private final static SingletonEager Instance = null;
+
+	private SingletonLazy() {
+
+	}
+
+	public static SingletonEager getInstance() {
+		return Instance;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

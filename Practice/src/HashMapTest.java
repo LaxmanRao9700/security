@@ -1,0 +1,22 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("A", "Apple");
+
+		Thread t1 = new Thread(() -> map.put("B", "Banana"));
+		Thread t2 = new Thread(() -> map.put("C", "Coco"));
+		Thread t3 = new Thread(() -> map.forEach((k, v) -> System.out.println(k + ":" + v)));
+		
+		t1.start();
+		t2.start();
+		t3.start();
+	}
+
+}

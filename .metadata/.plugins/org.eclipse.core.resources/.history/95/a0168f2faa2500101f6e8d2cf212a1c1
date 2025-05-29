@@ -1,0 +1,20 @@
+
+public class ThreadExample {
+
+	public ThreadExample(Runnable r) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Runnable r= ()->{
+			System.out.println("Thread is ruunig:"+Thread.currentThread().getName());
+		};
+
+		ThreadExample t1= new ThreadExample(r);
+		
+		t1.toString()
+	}
+
+}

@@ -1,0 +1,25 @@
+@FunctionalInterface
+interface A{
+void m1();
+}
+
+
+
+interface B extends A{
+void m2();
+
+}
+public class FunctionalInterfaceTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		m1 m = () -> {
+	        return "This is Interf A....";
+	    };
+
+	m2 n = () -> {
+	        return "This is Interf B....";
+	    };	
+	}
+
+}

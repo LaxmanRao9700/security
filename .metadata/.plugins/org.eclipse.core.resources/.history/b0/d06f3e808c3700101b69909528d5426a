@@ -1,0 +1,22 @@
+
+public class AAA {
+
+	   void m1() {
+		System.out.println("m1 AAA");
+	}
+}
+
+class BBB extends AAA{
+	  void m1() {
+		  super.m1();
+		System.out.println("m1 BBB");
+	}
+	  public static void main(String[] args) {
+			BBB b= new BBB();
+			b.m1();
+		}
+}
+
+ class Main{
+	
+}

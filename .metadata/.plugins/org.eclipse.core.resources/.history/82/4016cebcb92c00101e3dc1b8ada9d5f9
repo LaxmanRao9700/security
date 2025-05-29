@@ -1,0 +1,19 @@
+
+public class SingletonEager {
+
+	private final static SingletonEager Instance= new SingletonEager();
+	
+	private SingletonEager() {
+		
+	}
+	
+	public static SingletonEager getInstance() {
+		return Instance;
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

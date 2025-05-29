@@ -1,0 +1,38 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class ArrayDequeExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Deque<String> deque = new ArrayDeque<String>();
+		deque.add("one");
+		deque.add("two");
+		deque.add("three");
+		//deque.add(null);
+		System.out.println("----------------");
+		for(String str:deque) {
+			System.out.println(str);
+		}
+		System.out.println("----------------");
+		System.out.println(deque);
+		System.out.println("----------------");
+		Iterator<String> itr=	deque.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+			
+		}
+		System.out.println("----------------");
+		while (!deque.isEmpty()) {
+			System.out.println(deque.poll());
+		}
+		
+		System.out.println("----------------");
+		
+	}
+
+}

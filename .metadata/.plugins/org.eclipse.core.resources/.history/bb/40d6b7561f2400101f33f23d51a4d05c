@@ -1,0 +1,32 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StingTest {
+
+	public static void main(String[] args) {
+		//java is good
+
+		//doog is java
+		
+		String str= "java is good";
+		
+		
+		
+		String reverse=Arrays.stream(str.split(" ")).collect(Collectors.toList())
+		.stream().sorted(Collections.reverseOrder()).collect(Collectors.joining(" "));
+		String[] words=reverse.split(" ");
+		StringBuilder sb= new StringBuilder();
+		
+		
+		
+		for(int i=0;i<words.length;i++) {	
+			
+		sb.append(new StringBuilder(words[i]).reverse().toString()).append(" ");
+		}
+
+		System.out.println(sb);
+	}
+
+}

@@ -1,0 +1,12 @@
+
+public class StringCheck {
+public static void main(String[] args) {
+	String s = "sad";
+	System.out.println(s.equals("SAD"));
+	System.out.println(s.equalsIgnoreCase("SAD"));
+	System.out.println(s == "sad");
+	
+	 s = new String("happy");
+	System.out.println(s);
+}
+}

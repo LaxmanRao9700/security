@@ -1,0 +1,17 @@
+
+public class PalindromeFilter {
+	 public static void main(String[] args) {
+	        List<String> list = Arrays.asList("madam", "hello", "apple", "racecar", "noon");
+
+	        List<String> palindromes = list.stream()
+	                .filter(PalindromeFilter::isPalindrome)
+	                .collect(Collectors.toList());
+
+	        System.out.println("Palindromes: " + palindromes);
+	    }
+
+	    public static boolean isPalindrome(String word) {
+	        if (word == null) return false;
+	        return new StringBuilder(word).reverse().toString().equals(word);
+	    }
+}

@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List list= new ArrayList<>();
+		list.add(20);
+		list.add(15);
+		list.add("Laxman");
+		list.add("Ram");
+		list.add("Satish");
+		
+		List<String> values=(List<String>) list.stream().filter(e->e instanceof String).map(e->(String) e).collect(Collectors.toList());
+		
+		System.out.println(values);
+		//1,3,4,5
+		//2,6
+		
+		int[] arr1 = {1,3,4,5};
+		int[] arr2= {2,6};
+		
+		Stream.concat(Arrays.stream(arr1).boxed(), Arrays.stream(arr2).boxed()).sorted().collect(Collectors.toList())
+		.forEach(System.out::println);
+		
+		
+	}
+
+}

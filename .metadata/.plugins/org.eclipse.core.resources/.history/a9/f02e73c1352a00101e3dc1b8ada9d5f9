@@ -1,0 +1,17 @@
+import java.util.Optional;
+
+public class OptionalTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Optional<String> optional = Optional.of(null);
+
+		// Check if value is present
+		optional.ifPresent(System.out::println); // Prints "Hello"
+
+		// OrElse method
+		String result = optional.orElse("Default Value");
+	}
+
+}
