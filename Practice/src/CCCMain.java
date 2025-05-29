@@ -1,8 +1,0 @@
-
-public class CCCMain {
-	public static void main(String[] args) {
-		BBB b= new BBB();
-		b.m1();
-		b.m2();
-	}
-}
